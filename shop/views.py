@@ -16,3 +16,11 @@ def about(request):
 
     context = {}
     return render (request, "about.html", context)
+
+
+def shop(request):
+
+    context = {}
+    return render (request, "shop.html", context)
+
+
