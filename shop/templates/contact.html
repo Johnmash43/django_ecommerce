@@ -3,27 +3,27 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row m-5">
     <div class="col-lg-4">
-        <div class="card mt-3 bg-dark text-center">
+        <div class="card mt-3 text-center">
             <div class="card-body m-3">
-                <p><i class="fa fa-phone fa-2x text-light" aria-hidden="true"></i><h3 class="text-center text-light">Contact Us</h3></p>
+                <p><i class="fa fa-phone fa-2x" aria-hidden="true"></i><h3 class="text-center">Contact Us</h3></p>
             </div>
         </div>
     </div>
 
     <div class="col-lg-4">
-        <div class="card mt-3 bg-secondary text-center">
+        <div class="card mt-3 text-center">
             <div class="card-body m-3">
-                <p><i class="fa fa-envelope fa-2x text-light" aria-hidden="true"></i><h3 class="text-center text-light">Send Us An Email</h3></p>
+                <p><i class="fa fa-envelope fa-2x" aria-hidden="true"></i><h3 class="text-center">Send Us An Email</h3></p>
             </div>
         </div>
     </div>
 
     <div class="col-lg-4">
-        <div class="card mt-3 bg-danger text-center">
+        <div class="card mt-3 text-center">
             <div class="card-body m-3">
-                <p><i class="fa fa-map-marker fa-2x text-light" aria-hidden="true"></i><h3 class="text-center text-light">Our Location</h3></p>
+                <p><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><h3 class="text-center">Our Location</h3></p>
             </div>
         </div>
     </div>
@@ -32,31 +32,32 @@
 
 <div class="row m-3">
     <div class="col-lg-6">
-        <div class="card bg-primary">
+        <div class="card">
             <div class="card-body">
-                <form>
-                    <h3 class="text-center" >Contact Us</h3>
+                <form method="post"  action="{% url 'contact.form' %}">
+                    {% csrf_token %}
+                    <h3 class="text-center text-success" >Contact Us</h3>
                     <div class="mb-3">
                         <label>Name</label>
-                        <input type="text" placeholder="enter your name" class="form-control">
+                        <input type="text" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label>Email</label>
-                        <input type="text" placeholder="enter your email" class="form-control">
+                        <input type="text" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label>Phone Number</label>
-                        <input type="text" placeholder="enter your phone number" class="form-control">
+                        <input type="number" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label>Message</label>
-                        <textarea type="text" placeholder="enter your message" class="form-control" ></textarea>
+                        <textarea type="text" class="form-control" ></textarea>
                     </div>
 
-                    <button class="btn btn-dark btn-lg">Send</button>
+                    <button type="submit" class="btn btn-success btn-lg">Send Message</button>
                 </form>
             </div>
         </div>

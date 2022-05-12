@@ -24,3 +24,25 @@ def shop(request):
     return render (request, "shop.html", context)
 
 
+def submitContactForm(request):
+
+    if request.method == "POST":
+       
+       form_data = request.POST
+       email = form_data["email"]
+       name = form_data["name"]
+       number = form_dat["number"]
+       message = form_data["message"]
+
+
+       return HttpResponseRedirect("/form/success")
+    
+    else:
+        return HttpResponseRedirect("/")  
+  
+
+def successRedirect(request):
+
+    context = {}
+    return render (request, "success.html", context)
+
