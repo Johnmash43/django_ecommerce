@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "../.."
+			"path": "../../../django_blog"
 		},
 		{
-			"path": "../../../../Websites/classwork"
+			"path": "../.."
 		}
 	],
 	"settings": {}
