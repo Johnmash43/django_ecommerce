@@ -7,22 +7,29 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            <a class="nav-link
+            {% if request.path == '/' %} active-nav {% endif %}
+            " aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
+            <a class="nav-link
+            {% if 'about' in request.path %} active-nav {% endif %}
+            " href="{% url 'about' %}">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            <a class="nav-link
+            {% if 'contact' in request.path %} active-nav {% endif %}
+            " href="{% url 'contact' %}">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-success" href="{% url 'shop' %}">Shop</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="#">Sign In</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Sign up</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-success" href="{% url 'shop' %}">Shop</a>
           </li>
         </ul>
       </div>

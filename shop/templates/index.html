@@ -1,8 +1,34 @@
-{% extends "layouts/base.html" %}
+{% extends 'layouts/base.html' %} 
+{% load static %}
+
+ 
+ {% block css %}
+ <link
+ rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+ />
+ {% endblock %}
+
+ {% block content %}
+ <div class="container">
+     <div class="row justify-content-center mt-5">
+         <div class="col-lg-4">
+             <img class="img-fluid" src="{% static 'images/landing.jpg' %}">
+         </div>
+         <div class="col-lg-6 text-center">
+
+                     <h1>"There is no greater agony than bearing an untold story inside you."</h1> 
+                     <a href="{% url 'shop' %}" class="btn btn-success btn-lg">Show me More</a>                   
+                 </div>
+             </div>
+         </div>
 
 
-{% block content %}
-<h1>Almost There!</h1> 
 
-{% endblock content %}
+ {% endblock %}
+
+
+ {% block scripts %}
+
+ {% endblock %}
 
