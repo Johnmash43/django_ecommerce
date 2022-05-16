@@ -8,4 +8,6 @@ urlpatterns = [
     path( 'about',about, name="about"),
     path('contact/form/submit',submitContactForm, name="contact.form"),
     path('form/success',successRedirect, name="contact.redirect"),
+    path("ajax/contact/submission", ajaxContactSubmission,name="contact.ajax.submission")
+
 ]

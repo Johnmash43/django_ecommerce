@@ -34,27 +34,27 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <form method="post"  action="{% url 'contact.form' %}">
+                <form method="post" id="contactForm" name="contactForm" >
                     {% csrf_token %}
                     <h3 class="text-center text-success" >Contact Us</h3>
                     <div class="mb-3">
                         <label>Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="name" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label>Email</label>
-                        <input type="text" class="form-control">
+                        <input type="text" name="email" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label>Phone Number</label>
-                        <input type="number" class="form-control">
+                        <input type="number" name="number" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label>Message</label>
-                        <textarea type="text" class="form-control" ></textarea>
+                        <textarea type="text" name="text" class="form-control" ></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-success btn-lg">Send Message</button>
@@ -65,4 +65,43 @@
 </div>
 
 {% endblock content %}
+
+
+{% block scripts %}
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+        $("#contactForm").on("submit", function(e){
+
+            e.preventDefault();
+
+            $.ajax({
+                dataType: "json",
+                url: "{% url 'contact.ajax.submission' %}",
+                type:"POST",
+                data: $("#contactForm").serialize(),
+                success:function(data){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Submitted',
+                        text: 'Thank you for your message',
+                    })
+
+                },
+                error:function(data){
+                    console.log(data)
+                },
+            });
+        })
+
+       
+    });
+</script>
+
+{% endblock %}
+
 
