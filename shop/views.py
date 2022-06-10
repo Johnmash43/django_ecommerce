@@ -103,4 +103,12 @@ def searchProducts(request):
 
     return render(request, "shop.html", context) 
 
+def addProductsToCart(request):
+
+    context = {
+        "product": product
+    }    
+
+    return render(request,"add-to-cart.html", context)
+
 
