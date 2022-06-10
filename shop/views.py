@@ -21,9 +21,10 @@ def about(request):
 
 
 def shop(request):
-
-    context = {}
-    return render (request, "shop.html", context) 
+    context = {
+        "product": product
+    }
+    return render (request, "shop.html",context)
 
 def product(request):
 
@@ -103,7 +104,9 @@ def searchProducts(request):
 
     return render(request, "shop.html", context) 
 
-def addProductsToCart(request):
+def cart(request):
+
+    cart = Product.objects.all()
 
     context = {
         "product": product

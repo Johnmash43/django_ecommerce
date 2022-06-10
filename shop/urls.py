@@ -11,6 +11,6 @@ urlpatterns = [
     path("ajax/contact/submission", ajaxContactSubmission,name="contact.ajax.submission"),
     path('shop/product',product,name="product"),
     path('shop/search/products',searchProducts,name="searchProducts"),
-    path('shop/search/addProductsToCart',addProductsToCart,name="addProductsToCart")
+    path('shop/search/cart',cart,name="cart")
 
 ]
