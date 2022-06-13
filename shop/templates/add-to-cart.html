@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends 'shop.html' %}
 
 {% load static %}
 
@@ -19,7 +19,7 @@
                 {% for product in products %}
                 <tr>
                     <td>{{product.id}}</td>
-                    <td>{{product.category.name}}</td>
+                    <td>{{product.name}}</td>
                     <td>{{product.image}}</td>
                     <td>{{product.price}}</td>
                     <td>

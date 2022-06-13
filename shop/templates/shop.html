@@ -32,8 +32,9 @@
                     <p>KSH.{{product.price}}</p>
                     <div class="card-body">
                         <img class="img-fluid" src="{{product.image.url}}">
-                        <small>{{product.description | truncatewords:10}}</small>
-                        <button data-product="{{product.id}}" data-action="add" class="btn btn-success update-cart">Add to Cart</button>
+                        <small>{{product.description}}</small>
+                        <br>
+                        <a href="{% url 'cart' %}" class="btn btn-success mt-2">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -42,21 +43,5 @@
         </div>
     </div>
 </div>
-
-{% endblock %}
-
-{% block scripts %}
-
-<script>
-var updateBtns = document.getElementByClassName(update-cart)
-
-for(var i = 0; i < updateBtns.length; i++){
-    updateBtns[i].addEventListener('click', function(){
-        var productId = this.dataset.product
-        var action = this.dataset.action
-        console.log('product.id', product.id, 'action', action)
-    })
-}   
-</script>
 
 {% endblock %}
